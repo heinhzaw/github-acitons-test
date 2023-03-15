@@ -1,0 +1,10 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  run-another-workflow:
+    uses: heinhzaw/github-another-actions-test/.github/workflows/trigger.yml@main
