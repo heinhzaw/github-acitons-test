@@ -1,6 +1,6 @@
 name: Semantic release
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   release:
@@ -28,7 +28,6 @@ jobs:
           owner: heinhzaw
           repo: github-another-actions-test
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          ref: main
           workflow_file_name: trigger.yml
           trigger_workflow: true
           wait_workflow: true
