@@ -8,23 +8,23 @@ jobs:
     steps:
       - name: echo a string
         run: echo "Hello World"
-      # - name: multiline script
-      #   run: |
-      #     node -v
-      #     npm -v
-      # - name: python command
-      #   run: |
-      #     import platform
-      #     print(platform.processor())
-      #   shell: python
-  # run-window-commands:
-  #   runs-on: windows-latest
-  #   needs: ["run-shell-commands"]
-  #   steps:
-  #     - name: Directory Powershell
-  #       run: Get-Location
-  #     - name: Directory Bash
-  #       run: pwd
-  #       shell: bash
-  run-another-workflow:
-    uses: heinhzaw/github-another-actions-test/.github/workflows/trigger.yml@main
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+  run-window-commands:
+    runs-on: windows-latest
+    needs: ["run-shell-commands"]
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
+  # run-another-workflow:
+  #   uses: heinhzaw/github-another-actions-test/.github/workflows/trigger.yml@main
