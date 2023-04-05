@@ -30,7 +30,7 @@ jobs:
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: 'heinhzaw',
               repo: 'github-another-actions-test',
-              workflow_id: 'trigger.yml',
+              workflow_id: 'main.yml',
               ref: 'main'
             })
             console.log(result)
