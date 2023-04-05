@@ -1,3 +1,3 @@
 export default Greeting = () => {
-  console.log("Hello World");
+  console.log("Hello Github");
 };
