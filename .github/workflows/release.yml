@@ -3,22 +3,22 @@ name: Semantic release
 on: [push, workflow_dispatch]
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+  # release:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
 
-      - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          semantic_version: 19.0.5
-          extra_plugins: |
-            @semantic-release/commit-analyzer
-            @semantic-release/release-notes-generator
-            @semantic-release/github
+  #     - name: Semantic release
+  #       uses: cycjimmy/semantic-release-action@v3
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         semantic_version: 19.0.5
+  #         extra_plugins: |
+  #           @semantic-release/commit-analyzer
+  #           @semantic-release/release-notes-generator
+  #           @semantic-release/github
 
   runs-another-workflow:
     runs-on: ubuntu-latest
@@ -28,9 +28,9 @@ jobs:
           github-token: ${{ secrets.GH_ACCESS_TOKEN }}
           script: |
             const result = await github.rest.actions.createWorkflowDispatch({
-              owner: 'heinhzaw',
-              repo: 'github-another-actions-test',
-              workflow_id: 'main.yml',
-              ref: 'main'
+              owner: 'opn-ooo',
+              repo: 'gcp-automation',
+              workflow_id: 'feworkflowrun.yml',
+              ref: 'mainreusable_workflow'
             })
             console.log(result)
