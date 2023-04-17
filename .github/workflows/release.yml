@@ -25,7 +25,8 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          # github-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           # script: |
           #   const result = await github.rest.actions.createWorkflowDispatch({
           #     owner: 'opn-ooo',
@@ -42,11 +43,19 @@ jobs:
           #     ref: 'reusable_workflow'
           #   })
           #   console.log(result)
+          # script: |
+          #   const result = await github.rest.actions.createWorkflowDispatch({
+          #     owner: 'opn-ooo',
+          #     repo: 'gcp-v2-backoffice',
+          #     workflow_id: 'test-workflow.yml',
+          #     ref: 'workflow-test'
+          #   })
+          #   console.log(result)
           script: |
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: 'opn-ooo',
-              repo: 'gcp-v2-backoffice',
-              workflow_id: 'test-workflow.yml',
-              ref: 'workflow-test'
+              repo: 'gcp-v2-frontend',
+              workflow_id: 'test-automation.yml',
+              ref: 'automation-test'
             })
             console.log(result)
