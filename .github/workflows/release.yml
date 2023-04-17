@@ -34,11 +34,19 @@ jobs:
           #     ref: 'automation-test'
           #   })
           #   console.log(result)
+          # script: |
+          #   const result = await github.rest.actions.createWorkflowDispatch({
+          #     owner: 'opn-ooo',
+          #     repo: 'gcp-automation',
+          #     workflow_id: 'feworkflowrun.yml',
+          #     ref: 'reusable_workflow'
+          #   })
+          #   console.log(result)
           script: |
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: 'opn-ooo',
-              repo: 'gcp-automation',
-              workflow_id: 'feworkflowrun.yml',
-              ref: 'reusable_workflow'
+              repo: 'gcp-v2-backoffice',
+              workflow_id: 'test-workflow.yml',
+              ref: 'workflow-test'
             })
             console.log(result)
