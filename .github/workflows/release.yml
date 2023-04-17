@@ -26,11 +26,19 @@ jobs:
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          # script: |
+          #   const result = await github.rest.actions.createWorkflowDispatch({
+          #     owner: 'opn-ooo',
+          #     repo: 'gcp-v2-frontend',
+          #     workflow_id: 'test-automation.yml',
+          #     ref: 'automation-test'
+          #   })
+          #   console.log(result)
           script: |
             const result = await github.rest.actions.createWorkflowDispatch({
               owner: 'opn-ooo',
-              repo: 'gcp-v2-frontend',
-              workflow_id: 'test-automation.yml',
-              ref: 'automation-test'
+              repo: 'gcp-automation',
+              workflow_id: 'feworkflowrun.yml',
+              ref: 'reusable_workflow'
             })
             console.log(result)
