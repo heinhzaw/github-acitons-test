@@ -21,17 +21,16 @@ jobs:
   #           @semantic-release/github
 
   runs-another-workflow:
-    uses: opn-ooo/gcp-v2-frontend/.github/workflows/test-automation.yml@automation-test
-    # runs-on: ubuntu-latest
-    # steps:
-    # - uses: actions/github-script@v6
-    #   with:
-    #     github-token: ${{ secrets.GH_ACCESS_TOKEN }}
-    #     script: |
-    #       const result = await github.rest.actions.createWorkflowDispatch({
-    #         owner: 'opn-ooo',
-    #         repo: 'gcp-v2-frontend',
-    #         workflow_id: 'test-automation.yml',
-    #         ref: 'automation-test'
-    #       })
-    #       console.log(result)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          script: |
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'opn-ooo',
+              repo: 'gcp-v2-frontend',
+              workflow_id: 'test-automation.yml',
+              ref: 'automation-test'
+            })
+            console.log(result)
